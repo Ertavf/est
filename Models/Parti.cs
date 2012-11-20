@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -71,6 +72,7 @@ namespace MvcApplication2.Models
                 return ay + "" + yil + "" + gun;
             }
         }
+        public ICollection<Hata> Hatas { get; set; }
 
     }
 }

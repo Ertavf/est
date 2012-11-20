@@ -50,13 +50,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.GirisTarihi)
         </td>
+
          <th>
             @Html.DisplayFor(modelItem => item.Mil.Aciklama)
         </th>
 
-                  <th>
+        <th>
             @Html.DisplayFor(modelItem => item.isValid)
         </th>
+        <th>@Html.ActionLink(""+item.Hatas.Count(),"Index","Hata",new { PartiId = item.PartiId},null) </th>
+                    
 
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PartiId }) |
