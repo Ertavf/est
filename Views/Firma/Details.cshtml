@@ -1,0 +1,36 @@
+﻿@model MvcApplication2.Models.Firma
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Firma</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirmaIsmi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirmaIsmi)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirmaNumarasi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirmaNumarasi)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirmaAramaStr)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirmaAramaStr)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.FirmaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

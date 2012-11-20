@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MvcApplication2.Models.Firma>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirmaIsmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirmaNumarasi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirmaAramaStr)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirmaIsmi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirmaNumarasi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirmaAramaStr)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FirmaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FirmaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FirmaId })
+        </td>
+    </tr>
+}
+
+</table>

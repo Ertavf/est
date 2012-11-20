@@ -18,7 +18,7 @@ namespace MvcApplication2.Controllers
         {
             get
             {
-                return db.Partis.Include(p => p.Mil).Include(p => p.Mil.Sanayi).Include(p => p.Mil.MilTipi).Include(m => m.Mil.Firma).Include(m => m.Mil.EstasKoduTipi);
+                return db.Partis.Include(p => p.Mil).Include(p => p.Mil.Sanayi).Include(p => p.Mil.MilTipi).Include(m => m.Mil.Firma).Include(m => m.Mil.EstasKoduTipi).Include(m=>m.Hatas);
             }
         }
         public IQueryable<Mil> Mils

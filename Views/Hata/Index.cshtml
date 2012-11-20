@@ -1,0 +1,90 @@
+﻿@model IEnumerable<MvcApplication2.Models.Hata>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Parti.PartiKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HataTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HataAdet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HataSebebi.Sebep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HataliBolum.BolumIsmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HataYakalayanBolum.BolumIsmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OperatorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IadeEstas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tezgah.TezgahKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tashih)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parti.PartiKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HataTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HataAdet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HataSebebi.Sebep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HataliBolum.BolumIsmi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HataYakalayanBolum.BolumIsmi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OperatorId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IadeEstas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tezgah.TezgahKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tashih)
+        </td>
+       @*  <td>
+            @Html.ActionLink(""+item.Hatas.Count(),"Index","Hata",new { PartiId = item.PartiId},null) 
+        </td>  *@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HataId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HataId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HataId })
+        </td>
+    </tr>
+}
+
+</table>

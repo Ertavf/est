@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@ViewBag.Title - ESTAS</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
@@ -13,7 +13,7 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    <p class="site-title">@Html.ActionLink("ESTAŞ", "Index", "Home")</p>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -21,9 +21,15 @@
                     </section>
                     <nav>
                         <ul id="menu">
+                            <li>@Html.ActionLink("Sanayi", "Index", "Sanayi", new { id=""},null)</li>
                             <li>@Html.ActionLink("Mil", "Index", "Mil", new { id= ""}, null)</li>
                             <li>@Html.ActionLink("Parti", "Index", "Parti", new { id= ""},null)</li>
                             <li>@Html.ActionLink("Personel", "Index", "Personel", new { id= ""},null)</li>
+                            <li>@Html.ActionLink("Hata", "Index", "Hata", new { id=""},null)</li>
+                            <li>@Html.ActionLink("EstasKoduTipi", "Index", "EstasKoduTipi", new { id=""},null)</li>
+                            <li>@Html.ActionLink("MilTipi", "Index", "Miltipi", new { id=""},null)</li>
+                            <li>@Html.ActionLink("Firma", "Index", "Firma", new { id=""},null)</li>
+                            <li>@Html.ActionLink("Tezgah", "Index", "Tezgah", new { id=""},null)</li>
                         </ul>
                     </nav>
                 </div>

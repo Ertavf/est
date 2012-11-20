@@ -1,0 +1,85 @@
+﻿@model MvcApplication2.Models.Hata
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Hata</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Parti.PartiKodu)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Parti.PartiKodu)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HataTarihi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HataTarihi)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HataAdet)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HataAdet)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HataSebebi.Sebep)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HataSebebi.Sebep)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HataliBolum.BolumIsmi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HataliBolum.BolumIsmi)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HataYakalayanBolum.BolumIsmi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HataYakalayanBolum.BolumIsmi)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OperatorId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OperatorId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IadeEstas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IadeEstas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tezgah.TezgahKodu)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tezgah.TezgahKodu)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tashih)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tashih)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.HataId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
