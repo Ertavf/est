@@ -1,0 +1,82 @@
+﻿@model MvcApplication2.Models.Parti
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Parti</legend>
+        @Html.HiddenFor(model => model.PartiId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilId,"Mil")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MilId", String.Empty)
+            @Html.ValidationMessageFor(model => model.MilId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PartiKodu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PartiKodu)
+            @Html.ValidationMessageFor(model => model.PartiKodu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsEmriNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsEmriNo)
+            @Html.ValidationMessageFor(model => model.IsEmriNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilAdedi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilAdedi)
+            @Html.ValidationMessageFor(model => model.MilAdedi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GirisKntRaporNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GirisKntRaporNo)
+            @Html.ValidationMessageFor(model => model.GirisKntRaporNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GirisTarihi)
+        </div>
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.GirisTarihi)
+            @Html.DisplayFor(model => model.GirisTarihi)
+            @Html.ValidationMessageFor(model => model.GirisTarihi)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#PartiKodu').on('keyup', function (e) {
+            return $('#PartiKodu').val(($("#PartiKodu").val()).toUpperCase());
+        });
+    </script>
+}

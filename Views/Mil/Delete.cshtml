@@ -1,0 +1,28 @@
+﻿@model MvcApplication2.Models.Mil
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+@if(Model.Partis.Count() == 0){
+    using (Html.BeginForm()) {
+        <p>
+            <input type="submit" value="Delete" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    }
+}else
+{
+    <h3>
+        Bu mili kullanan @Html.ActionLink(""+Model.Partis.Count(),"Index","Parti",new { MilId = Model.MilId},null) parti var. <br/>
+        Milin silinebilmesi icin bu mili kullanan partinin olmamasi gerekir.
+    </h3>
+}
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Mil</legend>
+
+    @Html.DisplayForModel()
+</fieldset>

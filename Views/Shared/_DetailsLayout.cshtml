@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_DetailsLayout</title>
+<style type="text/css" media="print">
+@@page 
+    {
+        size: auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+
+    body 
+    {
+        background-color:#FFFFFF; 
+        border: solid 1px black ;
+        margin: 0px;  /* this affects the margin on the content before sending to printer */
+   }
+</style>
+</head>
+<body>
+    <div id ="layout">
+        @RenderBody()
+    </div>
+</body>
+</html>

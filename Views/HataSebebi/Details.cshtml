@@ -1,0 +1,22 @@
+﻿@model MvcApplication2.Models.HataSebebi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>HataSebebi</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sebep)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sebep)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.HataSebebiId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

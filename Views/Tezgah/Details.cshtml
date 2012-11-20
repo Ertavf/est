@@ -1,0 +1,29 @@
+﻿@model MvcApplication2.Models.Tezgah
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tezgah</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TezgahKodu)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TezgahKodu)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TezgahAdi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TezgahAdi)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TezgahId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

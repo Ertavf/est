@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MvcApplication2.Models.Parti>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmriNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mil.AramaIsmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MilAdedi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartiKodu)
+        </th>
+        <th>
+           @Html.DisplayNameFor(model => model.GirisTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mil.Aciklama)
+        </th>
+
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmriNo)
+        </td>
+        <td>
+            @Html.ActionLink(item.Mil.AramaIsmi,"Index","Mil",new {id = item.MilId},null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MilAdedi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartiKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GirisTarihi)
+        </td>
+         <th>
+            @Html.DisplayFor(modelItem => item.Mil.Aciklama)
+        </th>
+
+                  <th>
+            @Html.DisplayFor(modelItem => item.isValid)
+        </th>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PartiId }) |
+            @Html.ActionLink("Kalite Kontrol Formu", "Form", new { id=item.PartiId, form=1 }) |
+            @Html.ActionLink("İmalat İş Emri Formu", "Form", new { id=item.PartiId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PartiId })
+        </td>
+    </tr>
+}
+
+</table>

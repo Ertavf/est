@@ -1,0 +1,35 @@
+﻿@model MvcApplication2.Models.HataliOperasyon
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>HataliOperasyon</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OperasyonAdi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OperasyonAdi)
+            @Html.ValidationMessageFor(model => model.OperasyonAdi)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

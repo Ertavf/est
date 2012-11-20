@@ -1,0 +1,72 @@
+﻿@model MvcApplication2.Models.Personel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Personel</legend>
+
+        @Html.HiddenFor(model => model.PersonelId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SicilNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SicilNo)
+            @Html.ValidationMessageFor(model => model.SicilNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Adi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Adi)
+            @Html.ValidationMessageFor(model => model.Adi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Soyadi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Soyadi)
+            @Html.ValidationMessageFor(model => model.Soyadi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BolumId, "Bolum")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("BolumId", String.Empty)
+            @Html.ValidationMessageFor(model => model.BolumId)
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.ResimLink)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.ResimLink, new { @readonly = "readonly", onclick = "BrowseServer( 'Images:/Personel', 'ResimLink' );"})
+            @Html.ValidationMessageFor(model => model.ResimLink)
+            <input type="button" value="Dosya Yükle/Seç" onclick="BrowseServer('Images:/Personel', 'ResimLink');"/>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="@Url.Content("~/ckfinder/ckfinder.js")"></script>
+    <script src="~/Scripts/yayin.js"></script>
+}

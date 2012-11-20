@@ -1,0 +1,137 @@
+﻿@model MvcApplication2.Models.Mil
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Mil</legend>
+
+        @Html.HiddenFor(model => model.MilId)
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SanayiId, "Sanayi")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("SanayiId", String.Empty)
+            @Html.ValidationMessageFor(model => model.SanayiId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilAdi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilAdi)
+            @Html.ValidationMessageFor(model => model.MilAdi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilNo)
+            @Html.ValidationMessageFor(model => model.MilNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Firma, "EstasKoduTipi")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("EstasKoduTipiId",String.Empty)
+            @Html.ValidationMessageFor(model => model.EstasKoduTipiId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Firma, "Firma")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("FirmaId",String.Empty)
+            @Html.ValidationMessageFor(model => model.FirmaId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EstasKodu_FirmaninMilKodu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EstasKodu_FirmaninMilKodu)
+            @Html.ValidationMessageFor(model => model.EstasKodu_FirmaninMilKodu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilKodu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilKodu)
+            @Html.ValidationMessageFor(model => model.MilKodu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaniticiRenk)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TaniticiRenk)
+            @Html.ValidationMessageFor(model => model.TaniticiRenk)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilTipi,"MilTipi")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MilTipiId",String.Empty)
+            @Html.ValidationMessageFor(model => model.MilTipiId)
+        </div>
+
+        <div id="dokum_mili_verileri" style="margin-left:20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DokumMil_ModelNo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DokumMil_ModelNo)
+                @Html.ValidationMessageFor(model => model.DokumMil_ModelNo)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Aciklama)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Aciklama)
+            @Html.ValidationMessageFor(model => model.Aciklama)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Ept)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Ept)
+            @Html.ValidationMessageFor(model => model.Ept)
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+            
+    <script type="text/javascript">
+        $("select[id='MilTipiId']").change(function () {
+            if ($("select[id='MilTipiId'] option:selected")[0].value == "1") { //Dokum
+                $("#dokum_mili_verileri").css("display", "block")
+            } else {
+                $("#dokum_mili_verileri").css("display", "none");
+                $("input[id=DokumMil_ModelNo\]")[0].value = "";
+            }
+        }).trigger('change');
+    </script>
+
+}

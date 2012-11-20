@@ -1,0 +1,50 @@
+﻿@model MvcApplication2.Models.Mil
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Mil</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sanayi.SanayiTipi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sanayi.SanayiTipi)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MilAdi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MilAdi)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EstasKodu)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EstasKodu)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MilNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MilNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirmaAdi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirmaAdi)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.MilId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

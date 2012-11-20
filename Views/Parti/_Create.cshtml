@@ -1,0 +1,80 @@
+﻿@model MvcApplication2.Models.Parti
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Parti</legend>
+
+        <div class="editor-label">
+            Bugunun Parti Kodu : @MvcApplication2.Models.Parti.BugununPartiKodu
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MilId",String.Empty)
+            @Html.ValidationMessageFor(model => model.MilId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PartiKodu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PartiKodu)
+            @Html.ValidationMessageFor(model => model.PartiKodu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsEmriNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsEmriNo)
+            @Html.ValidationMessageFor(model => model.IsEmriNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilAdedi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilAdedi)
+            @Html.ValidationMessageFor(model => model.MilAdedi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GirisKntRaporNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GirisKntRaporNo)
+            @Html.ValidationMessageFor(model => model.GirisKntRaporNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GirisTarihi)
+        </div>
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.GirisTarihi)
+            @Html.DisplayFor(model => model.GirisTarihi)
+            @Html.ValidationMessageFor(model => model.GirisTarihi)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

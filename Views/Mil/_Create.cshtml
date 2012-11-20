@@ -1,0 +1,107 @@
+﻿@model MvcApplication2.Models.Mil
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Mil</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SanayiId, "Sanayi")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("SanayiId", String.Empty)
+            @Html.ValidationMessageFor(model => model.SanayiId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilAdi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilAdi)
+            @Html.ValidationMessageFor(model => model.MilAdi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EstasKodu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EstasKodu)
+            @Html.ValidationMessageFor(model => model.EstasKodu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilNo)
+            @Html.ValidationMessageFor(model => model.MilNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirmaAdi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirmaAdi)
+            @Html.ValidationMessageFor(model => model.FirmaAdi)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilKodu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilKodu)
+            @Html.ValidationMessageFor(model => model.MilKodu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaniticiRenk)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TaniticiRenk)
+            @Html.ValidationMessageFor(model => model.TaniticiRenk)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilTipi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilTipi)
+            @Html.ValidationMessageFor(model => model.MilTipi)
+        </div>
+       
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Aciklama)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Aciklama)
+            @Html.ValidationMessageFor(model => model.Aciklama)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Ept)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Ept)
+            @Html.ValidationMessageFor(model => model.Ept)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

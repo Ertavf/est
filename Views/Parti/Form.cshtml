@@ -1,0 +1,69 @@
+﻿@model MvcApplication2.Models.Parti
+
+@{
+    ViewBag.Title = "KaliteKontrolFormu";
+    Layout = "~/Views/Shared/FormlarinLayoutlari/_KaliteKontrolForm.cshtml";
+}
+    <div id="solUstNokta">
+        +
+    </div>
+    <div id="sagUstNokta">
+        +
+    </div>
+<div id="resim">
+
+    <div id="sagUstKutu">
+        <div id="isEmriNo">
+            @Html.DisplayFor(model => model.IsEmriNo)
+        </div>
+        <div id="MilKodu">
+            @Html.DisplayFor(model => model.Mil.MilKodu)
+        </div>
+        <div id="EstasKodu">
+            @Html.DisplayFor(model => model.Mil.EstasKodu)
+        </div>
+        <div id="ModelNo">
+            @Html.DisplayFor(model => model.GirisTarihi)
+        </div>
+    </div>
+
+    <div id="ust2sol1">
+        <div id="MilNo">
+            @Html.DisplayFor(model => model.Mil.MilNo)
+        </div>
+        <div id="MilAdi">
+            @Html.DisplayFor(model => model.Mil.MilAdi)
+        </div>
+    </div>
+
+    <div id="ust2sol2">
+        <div id="PartiKodu">
+            @Html.DisplayFor(model => model.PartiKodu)
+        </div>
+        <div id="MilAdedi">
+            @Html.DisplayFor(model => model.MilAdedi)
+        </div>
+    </div>
+    <div id="ust2sol3">
+        <div id="TaniticiRenk">
+            @Html.DisplayFor(model => model.Mil.TaniticiRenk)
+        </div>
+        <div id="GirisKntRaporNo">
+            @Html.DisplayFor(model => model.GirisKntRaporNo)
+        </div>
+    </div>
+
+
+        <!--
+    <div id="GirisTarihi">
+        @Html.DisplayFor(model => model.GirisTarihi)
+    </div>
+    -->
+
+</div>
+    <div id="solAltNokta">
+        +
+    </div>
+    <div id="sagAltNokta">
+        +
+    </div>

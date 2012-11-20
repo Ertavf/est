@@ -1,0 +1,1253 @@
+﻿@model MvcApplication2.Models.Parti
+
+@{
+    ViewBag.Title = "İmalat İş Emri";
+    Layout = "~/Views/Shared/_DetailsLayout.cshtml";
+}
+
+<style>
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+	{margin:1.0in .75in 1.0in .75in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;}
+tr
+	{mso-height-source:auto;}
+col
+	{mso-width-source:auto;}
+br
+	{mso-data-placement:same-cell;}
+.style0
+	{mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	white-space:nowrap;
+	mso-rotate:0;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Arial Tur";
+	mso-generic-font-family:auto;
+	mso-font-charset:162;
+	border:none;
+	mso-protection:locked visible;
+	mso-style-name:Normal;
+	mso-style-id:0;}
+td
+	{mso-style-parent:style0;
+	padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Arial Tur";
+	mso-generic-font-family:auto;
+	mso-font-charset:162;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:locked visible;
+	white-space:nowrap;
+	mso-rotate:0;}
+.xl24
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl25
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl26
+	{mso-style-parent:style0;
+	text-align:center;}
+.xl27
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl28
+	{mso-style-parent:style0;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl29
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl30
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl31
+	{mso-style-parent:style0;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl32
+	{mso-style-parent:style0;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl33
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl34
+	{mso-style-parent:style0;
+	white-space:normal;}
+.xl35
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl36
+	{mso-style-parent:style0;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	white-space:normal;}
+.xl37
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-weight:700;
+	font-style:italic;
+	font-family:"Times New Roman", serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl38
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-weight:700;
+	font-style:italic;
+	font-family:"Times New Roman", serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;}
+.xl39
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-weight:700;
+	font-style:italic;
+	font-family:"Times New Roman", serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl40
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-weight:700;
+	font-style:italic;
+	font-family:"Times New Roman", serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl41
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-weight:700;
+	font-style:italic;
+	font-family:"Times New Roman", serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;}
+.xl42
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-weight:700;
+	font-style:italic;
+	font-family:"Times New Roman", serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl43
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-weight:700;
+	font-style:italic;
+	font-family:"Times New Roman", serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl44
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-weight:700;
+	font-style:italic;
+	font-family:"Times New Roman", serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl45
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-weight:700;
+	font-style:italic;
+	font-family:"Times New Roman", serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl46
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl47
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;}
+.xl48
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl49
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl50
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;}
+.xl51
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl52
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl53
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl54
+	{mso-style-parent:style0;
+	font-size:26.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:162;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl55
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl56
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;}
+.xl57
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid black;
+	border-bottom:none;
+	border-left:none;}
+.xl58
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl59
+	{mso-style-parent:style0;
+	text-align:left;}
+.xl60
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:none;
+	border-right:1.0pt solid black;
+	border-bottom:none;
+	border-left:none;}
+.xl61
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl62
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl63
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:none;
+	border-right:1.0pt solid black;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl64
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl65
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl66
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid black;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl67
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid black;}
+.xl68
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid black;
+	border-left:1.0pt solid windowtext;}
+.xl69
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid black;
+	border-left:none;}
+.xl70
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:none;
+	border-right:1.0pt solid black;
+	border-bottom:1.0pt solid black;
+	border-left:none;}
+.xl71
+	{mso-style-parent:style0;
+	text-align:left;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+</style>
+
+<table x:str border=0 cellpadding=0 cellspacing=0 width=923 style='border-collapse:
+ collapse;table-layout:fixed;width:692pt'>
+ <col width=64 span=12 style='width:48pt'>
+ <col width=72 style='mso-width-source:userset;mso-width-alt:2633;width:54pt'>
+ <col width=19 style='mso-width-source:userset;mso-width-alt:694;width:14pt'>
+ <col width=64 style='width:48pt'>
+ <tr height=17 style='height:12.75pt'>
+  <td colspan=3 rowspan=4 height=69 class=xl37 width=192 style='border-right:
+  1.0pt solid black;border-bottom:1.0pt solid black;height:51.75pt;width:144pt'>ESTAŞ</td>
+  <td colspan=8 rowspan=4 class=xl46 width=512 style='border-right:1.0pt solid black;
+  border-bottom:1.0pt solid black;width:384pt'>İMALAT İŞ EMRİ</td>
+  <td colspan=4 class=xl55 width=219 style='border-right:1.0pt solid black;
+  border-left:none;width:164pt'>Sıra No: @Html.DisplayFor(model =>
+  model.IsEmriNo)</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td colspan=4 height=17 class=xl58 style='border-right:1.0pt solid black;
+  height:12.75pt;border-left:none'>Mil Kodu: @Html.DisplayFor(model =>
+  model.Mil.MilKodu)</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td colspan=4 height=17 class=xl58 style='border-right:1.0pt solid black;
+  height:12.75pt;border-left:none'>Sipariş No:</td>
+ </tr>
+ <tr height=18 style='mso-height-source:userset;height:13.5pt'>
+  <td colspan=4 height=18 class=xl61 style='border-right:1.0pt solid black;
+  height:13.5pt;border-left:none'>Estaş Kodu: @Html.DisplayFor(model =>
+  model.Mil.EstasKodu)</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td colspan=4 height=18 class=xl64 style='border-right:1.0pt solid black;
+  height:13.5pt'>Mil No:@Html.DisplayFor(model => model.Mil.MilNo)</td>
+  <td colspan=6 class=xl67 style='border-right:1.0pt solid black;border-left:
+  none'>Parti Kodu: @Html.DisplayFor(model => model.PartiKodu)</td>
+  <td colspan=5 class=xl67 style='border-right:1.0pt solid black;border-left:
+  none'>Tanıtıcı Renk:@Html.DisplayFor(model => model.Mil.TaniticiRenk)</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td colspan=4 rowspan=2 height=36 class=xl55 style='border-right:1.0pt solid black;
+  border-bottom:1.0pt solid black;height:27.0pt'>Mil Adı:@Html.DisplayFor(model
+  => model.Mil.MilAdi)</td>
+  <td colspan=6 class=xl67 style='border-right:1.0pt solid black;border-left:
+  none'>Parti Adedi: @Html.DisplayFor(model => model.MilAdedi)</td>
+  <td colspan=5 rowspan=2 class=xl56 style='border-right:1.0pt solid black;
+  border-bottom:1.0pt solid black'>Giriş Knt. Rapor No: @Html.DisplayFor(model => model.GirisKntRaporNo)</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td colspan=6 height=18 class=xl67 style='border-right:1.0pt solid black;
+  height:13.5pt;border-left:none'>Kasa Adedi:</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl24 style='height:13.5pt'>İşlem</td>
+  <td class=xl25>Tezgah</td>
+  <td class=xl26>İşe Başlama</td>
+  <td class=xl27>&nbsp;</td>
+  <td class=xl25>İş Bitiş</td>
+  <td class=xl25>&nbsp;</td>
+  <td class=xl28>Birim</td>
+  <td class=xl28>Yap.</td>
+  <td class=xl28>Hurda</td>
+  <td class=xl28>Kullanılan</td>
+  <td class=xl28>İşçi</td>
+  <td class=xl28>Kontr.</td>
+  <td class=xl25>Düşünceler</td>
+  <td class=xl28>&nbsp;</td>
+  <td class=xl28>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl27 style='height:13.5pt'>Sıra No</td>
+  <td class=xl29>No</td>
+  <td class=xl30>Tarih</td>
+  <td class=xl27>Saat</td>
+  <td class=xl29>Tarih</td>
+  <td class=xl29>Saat</td>
+  <td class=xl29>Süre</td>
+  <td class=xl29>Adet</td>
+  <td class=xl29>Adedi</td>
+  <td class=xl29>Kesici</td>
+  <td class=xl29>Kodu</td>
+  <td class=xl29>Posta</td>
+  <td class=xl29>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>1</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>2</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>3</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>4</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>5</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>6</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>7</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>8</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>9</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>10</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>11</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>12</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>13</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>14</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>15</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>16</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>17</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>18</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>19</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>20</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>21</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>22</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>23</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>24</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>25</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>26</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>27</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>28</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>29</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>30</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>31</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>32</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>33</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>34</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>35</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl32 style='height:12.75pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>36</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>37</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+  <td class=xl31 align=right x:num>38</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl33 style='height:12.75pt'>Değerlendirme:</td>
+  <td colspan=10 class=xl26 style='mso-ignore:colspan'></td>
+  <td class=xl25>&nbsp;</td>
+  <td class=xl34 width=72 style='width:54pt'>Onay</td>
+  <td class=xl34></td>
+  <td class=xl28>&nbsp;</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl33 style='height:12.75pt'>&nbsp;</td>
+  <td colspan=10 class=xl26 style='mso-ignore:colspan'></td>
+  <td class=xl25>&nbsp;</td>
+  <td class=xl34 width=72 style='width:54pt'><span
+  style='mso-spacerun:yes'> </span>İml. Sor.</td>
+  <td class=xl34></td>
+  <td class=xl28>&nbsp;</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl35 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl29>&nbsp;</td>
+  <td class=xl36 width=72 style='width:54pt'>------</td>
+  <td class=xl36 width=19 style='width:14pt'>&nbsp;</td>
+  <td class=xl31>&nbsp;</td>
+ </tr>
+ <tr height=0 style='display:none'>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=19 style='width:14pt'></td>
+  <td width=64 style='width:48pt'></td>
+ </tr>
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PartiId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

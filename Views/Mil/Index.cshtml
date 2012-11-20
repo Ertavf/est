@@ -1,0 +1,111 @@
+﻿@model IEnumerable<MvcApplication2.Models.Mil>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sanayi.SanayiTipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MilAdi)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.EstasKoduTipi.EstasKoduTipiStr)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.EstasKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MilNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Firma.FirmaIsmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Firma.FirmaNumarasi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MilKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaniticiRenk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MilTipiStr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MilPartis)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sanayi.SanayiTipi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MilAdi)
+        </td>
+        @*
+        <td>
+            @Html.DisplayFor(modelItem => item.EstasKoduTipi.EstasKoduTipiStr)
+        </td>
+        *@
+        <td>
+            @Html.DisplayFor(modelItem => item.EstasKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MilNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Firma.FirmaIsmi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Firma.FirmaNumarasi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MilKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaniticiRenk)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.MilTipiStr)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ept)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => )*@
+            @Html.ActionLink(""+item.MilPartis.Count(),"Index","Parti",new { MilId = item.MilId},null)
+            
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MilId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MilId })
+        </td>
+    </tr>
+}
+
+</table>
