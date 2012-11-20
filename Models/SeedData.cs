@@ -14,7 +14,7 @@ using System.Xml.Serialization;
 
 namespace MvcApplication2.Models
 {
-    class SeedData : DropCreateDatabaseIfModelChanges<MvcApplication2.Models.MvcApplication2Context>
+    class SeedData : DropCreateDatabaseAlways<MvcApplication2.Models.MvcApplication2Context>
     {
         protected override void Seed(MvcApplication2Context context)
         {

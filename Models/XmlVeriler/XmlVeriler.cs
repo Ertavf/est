@@ -26,14 +26,20 @@ namespace MvcApplication2.Models.XmlVeriler
 
         private string XmlDir = AppDomain.CurrentDomain.BaseDirectory + @"Models/XmlVeriler/";
         private string SeedLogDir = AppDomain.CurrentDomain.BaseDirectory + @"Models/XmlVeriler/SeedLoglari/";
+#if DEBUG
         private const string StokXmlFile = "stok_azaltilmis.xml";
+#else
+        private const string StokXmlFile = "stok.xml";
+#endif
         private const string ErkekXmlFile = "erkek.xml";
         private const string UretimCesitleriXml = "Uretimcesitleri.xml";
+        private const string EstKodlariXmlFile = "estKodlari.xml";
+
         private System.IO.StreamWriter seedLogWriter;
 
         public XmlOkuyucu()
         {
-            seedLogWriter = new System.IO.StreamWriter(SeedLogDir + "log" + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".txt");
+            seedLogWriter = new System.IO.StreamWriter(SeedLogDir + "log" + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".log");
         }
         public List<Parti> partiler(List<Sanayi> sanayis, List<Mil> mils, List<MilTipi> milTipis, List<EstasKoduTipi> estasKoduTipis, List<Firma> firmas)
         {
@@ -48,7 +54,8 @@ namespace MvcApplication2.Models.XmlVeriler
             XDocument uretimCestileriXDocument = XDocument.Load(XmlDir + UretimCesitleriXml);
             IEnumerable<XNode> uretimCesitleriIEnumerable = uretimCestileriXDocument.Root.Nodes();
 
-
+            XDocument estKodlariXDocument = XDocument.Load(XmlDir + EstKodlariXmlFile);
+            IEnumerable<XNode> estKodlariIEnumerable = estKodlariXDocument.Root.Nodes();
 
             int siraNo = 0;
             foreach (XElement stokXElement in stokIEnumerable)
@@ -74,15 +81,16 @@ namespace MvcApplication2.Models.XmlVeriler
                     seedLogWriter.WriteLine("Partileri aktarirken estas kodu alamadim> Sira No: {0} Stok: {1}", siraNo, stokXElement.ToString());
                     continue;
                 }
-
-                EstasKoduTipi estasKoduTipi;
-
                 string estasKoduTipiStr = EstasKod.Substring(0, 3);
                 string estasKodu_firma = EstasKod.Substring(4, 2);
                 string estasKodu_FirmaninMilKodu = EstasKod.Substring(7, EstasKod.Length - 7);
 
+                int estasKodu_firmaInt;
+                int estasKodu_FirmaninMilKoduInt;
+
                 IEnumerable<EstasKoduTipi> mevcutEstasKoduTipi =  estasKoduTipis.Where(e => e.EstasKoduTipiStr == estasKoduTipiStr);
 
+                EstasKoduTipi estasKoduTipi;
                 if (mevcutEstasKoduTipi.Count() == 0)
                 {
                     estasKoduTipi = new EstasKoduTipi
@@ -95,8 +103,6 @@ namespace MvcApplication2.Models.XmlVeriler
                 {
                     estasKoduTipi = estasKoduTipis.First();
                 }
-                int estasKodu_firmaInt;
-                int estasKodu_FirmaninMilKoduInt;
 
                 if(!(int.TryParse(estasKodu_firma,out estasKodu_firmaInt) && (int.TryParse(estasKodu_FirmaninMilKodu,out estasKodu_FirmaninMilKoduInt)))){
                     System.Diagnostics.Trace.TraceInformation("Partileri aktarirken firma kodu alamadim> Parti {0}", siraNo);
@@ -106,9 +112,20 @@ namespace MvcApplication2.Models.XmlVeriler
 
                 Firma firma;
                 IEnumerable<Firma> mevcutFirmalar = firmas.Where(f => f.FirmaNumarasi == estasKodu_firmaInt);
-
+                
                 if (mevcutFirmalar.Count() == 0)
                 {
+                     
+                    //TODO
+                       estKodlariIEnumerable.Where(e => {
+                           
+                           string est_grubu = ((string)(((XElement)e).Element("EST_x0020_GRUBU")));
+                           string firmaNumarasi = est_grubu.Split(new char[]{' ','.'},2 )[1];
+                           int firmaNumarasiInt;
+
+                           return int.TryParse(firmaNumarasi, out firmaNumarasiInt) && firmaNumarasiInt == estasKodu_firmaInt; 
+                       });
+                        //((string)(((XElement)e).Element("EST_x0020_GRUBU"))).Split(".",)[0] ==  "s" );
                     firma = new Firma
                     {
                         FirmaIsmi = estasKodu_firma + "numarali F",
@@ -146,9 +163,9 @@ namespace MvcApplication2.Models.XmlVeriler
 
                 if (uretimCesitleriIEnumerableEstasKodlu.Count() == 0)
                 {
-                    string msg = string.Format("Model no alamadim> Sira No: {0} Erkek: {1}", siraNo, stokXElement.ToString());
-                    System.Diagnostics.Trace.TraceInformation(msg);
-                    seedLogWriter.WriteLine(msg);
+                //    string msg = string.Format("Model no alamadim> Sira No: {0} Erkek: {1}", siraNo, stokXElement.ToString());
+                //    System.Diagnostics.Trace.TraceInformation(msg);
+                //    seedLogWriter.WriteLine(msg);
                     dokumMil_ModelNo = null;
                     milTipi = milTipis[1];
                 }
