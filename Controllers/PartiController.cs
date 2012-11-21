@@ -31,16 +31,20 @@ namespace MvcApplication2.Controllers
 
         //
         // GET: /Parti/
-        public ActionResult Index(int MilId = 0)
+        public ActionResult Index(int MilId = 0, int bas = 0, int getir = 5)
         {
-            var partis = Partis;
+            if (bas < 0)
+                bas = 0;
+            @ViewBag.Toplam = Partis.Count();
 
+            var partis = Partis.OrderByDescending(p => p.IsEmriNo).Skip(bas).Take(getir);
+            ViewBag.Bas = bas;
+            ViewBag.Getir = getir;
             if (MilId != 0)
             {
                 partis = partis.Where(p => p.MilId == MilId);
             }
 
-            partis = partis.OrderByDescending(p => p.IsEmriNo);
 
             List<Parti> partiler = partis.ToList();
             //partiler.ForEach(p => p.isValid = TryValidateModel(p));

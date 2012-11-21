@@ -41,7 +41,7 @@ namespace MvcApplication2.Models.XmlVeriler
         {
             seedLogWriter = new System.IO.StreamWriter(SeedLogDir + "log" + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".log");
         }
-        public List<Parti> partiler(List<Sanayi> sanayis, List<Mil> mils, List<MilTipi> milTipis, List<EstasKoduTipi> estasKoduTipis, List<Firma> firmas)
+        public List<Parti> partiler(List<Sanayi> sanayis, List<Mil> mils, List<MilTipi> milTipis, List<EstasKoduTipi> estasKoduTipis, List<Firma> firmas, List<TaniticiRenk> taniticiRenks)
         {
             List<Parti> partis = new List<Parti>();
 
@@ -115,20 +115,37 @@ namespace MvcApplication2.Models.XmlVeriler
                 
                 if (mevcutFirmalar.Count() == 0)
                 {
-                     
-                    //TODO
-                       estKodlariIEnumerable.Where(e => {
+                       IEnumerable<XNode> firmaKodluEst  =  estKodlariIEnumerable.Where(e => {
                            
                            string est_grubu = ((string)(((XElement)e).Element("EST_x0020_GRUBU")));
-                           string firmaNumarasi = est_grubu.Split(new char[]{' ','.'},2 )[1];
+                           string firmaNumarasi = est_grubu.Split(new char[]{' ','.'},3 )[1];
                            int firmaNumarasiInt;
 
                            return int.TryParse(firmaNumarasi, out firmaNumarasiInt) && firmaNumarasiInt == estasKodu_firmaInt; 
                        });
                         //((string)(((XElement)e).Element("EST_x0020_GRUBU"))).Split(".",)[0] ==  "s" );
+                    
+                    string firmaIsmi = null;
+
+                    
+                    firmaKodluEst.ToList().ForEach(f =>
+                    {
+                        XElement firmaKodluEstElement = (XElement)(f);
+                        if (firmaIsmi == null)
+                            firmaIsmi = getValue(firmaKodluEstElement.Element("MİL_x0020_ADI"));
+                        else
+                            firmaIsmi += "-" + getValue(firmaKodluEstElement.Element("MİL_x0020_ADI")); ;
+                    }
+                    );
+                    
+                    if(firmaIsmi == null)
+                    {
+                        firmaIsmi = "Firma" + estasKodu_firma ;
+                    }
+
                     firma = new Firma
                     {
-                        FirmaIsmi = estasKodu_firma + "numarali F",
+                        FirmaIsmi = firmaIsmi,
                         FirmaNumarasi = estasKodu_firmaInt
                     };
                     firmas.Add(firma);
@@ -189,13 +206,31 @@ namespace MvcApplication2.Models.XmlVeriler
                 else
                 {
                     string renk = getValue(stokXElement.Element("birimfiyat"));
-                    renk = (renk == "-") ? "R" : renk;
+                    renk = (renk == "-") ? "Yok" : renk;
+
+                    TaniticiRenk taniticiRenk;
+
+                    IEnumerable<TaniticiRenk> mevcutTaniticiRenkler =  taniticiRenks.Where(t => t.TaniticiRenkStr == renk);
+
+                    if (mevcutTaniticiRenkler.Count() == 0)
+                    {
+                        taniticiRenk = new TaniticiRenk
+                        {
+                            TaniticiRenkStr = renk,
+                        };
+                        taniticiRenks.Add(taniticiRenk);
+                    }
+                    else
+                    {
+                        taniticiRenk = mevcutTaniticiRenkler.First();
+                    }
+
                     mil = new Mil
                     {
                         MilKodu = getValue(stokXElement.Element("stokadi")),
                         MilNo = getValue(stokXElement.Element("miktarbirim")),
                         MilAdi = getValue(stokXElement.Element("stokkodu")),
-                        TaniticiRenk = renk,
+                        TaniticiRenk = taniticiRenk,
                         EstasKodu_FirmaninMilKodu = estasKodu_FirmaninMilKoduInt,
                         Aciklama = getValue(stokXElement.Element("username"),""),
                         Firma = firma,

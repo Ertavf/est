@@ -71,12 +71,13 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.TaniticiRenk)
+            @Html.LabelFor(model => model.TaniticiRenk, "TaniticiRenk")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.TaniticiRenk)
-            @Html.ValidationMessageFor(model => model.TaniticiRenk)
+            @Html.DropDownList("TaniticiRenkId",String.Empty)
+            @Html.ValidationMessageFor(model => model.TaniticiRenkId)
         </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.MilTipi,"MilTipi")
         </div>

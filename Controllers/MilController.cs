@@ -17,7 +17,7 @@ namespace MvcApplication2.Controllers
         public IQueryable<Mil> Mils 
         {
             get{
-                return db.Mils.Include(m => m.Sanayi).Include(m => m.MilTipi).Include(m => m.MilPartis).Include(m => m.Firma).Include(m => m.EstasKoduTipi);
+                return db.Mils.Include(m => m.Sanayi).Include(m => m.MilTipi).Include(m => m.MilPartis).Include(m => m.Firma).Include(m => m.EstasKoduTipi).Include(m => m.TaniticiRenk);
             }
         }
 
@@ -96,11 +96,17 @@ namespace MvcApplication2.Controllers
             {
                 return HttpNotFound();
             }
+            SetSelectLists(mil);
+            return View(mil);
+        }
+
+        private void SetSelectLists(Mil mil)
+        {
             ViewBag.SanayiId = new SelectList(db.Sanayis, "SanayiId", "SanayiTipi", mil.SanayiId);
             ViewBag.MilTipiId = new SelectList(db.MilTipis, "MilTipiId", "MilTipiIsmi", mil.MilTipiId);
             ViewBag.FirmaId = new SelectList(db.Firmas, "FirmaId", "FirmaAramaStr", mil.FirmaId);
             ViewBag.EstasKoduTipiId = new SelectList(db.EstasKoduTipis, "EstasKoduTipiId", "EstasKoduTipiStr", mil.EstasKoduTipiId);
-            return View(mil);
+            ViewBag.TaniticiRenkId = new SelectList(db.TaniticiRenks, "TaniticiRenkId", "TaniticiRenkStr", mil.TaniticiRenkId);
         }
 
         //
@@ -125,11 +131,8 @@ namespace MvcApplication2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
-            ViewBag.SanayiId = new SelectList(db.Sanayis, "SanayiId", "SanayiTipi", mil.SanayiId);
-            ViewBag.MilTipiId = new SelectList(db.MilTipis, "MilTipiId", "MilTipiIsmi", mil.MilTipiId);
-            ViewBag.FirmaId = new SelectList(db.Firmas, "FirmaId", "FirmaAramaStr", mil.FirmaId);
-            ViewBag.EstasKoduTipiId = new SelectList(db.EstasKoduTipis, "EstasKoduTipiId", "EstasKoduTipiStr", mil.EstasKoduTipiId);
+
+            SetSelectLists(mil); 
             return View(mil);
         }
 

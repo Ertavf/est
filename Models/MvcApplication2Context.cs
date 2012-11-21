@@ -26,6 +26,8 @@ namespace MvcApplication2.Models
 
         public DbSet<Firma> Firmas { get; set; }
 
+        public DbSet<TaniticiRenk> TaniticiRenks { get; set; }
+
         public DbSet<Mil> Mils { get; set; }
 
         public DbSet<Parti> Partis { get; set; }

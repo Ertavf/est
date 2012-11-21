@@ -65,10 +65,14 @@ namespace MvcApplication2.Models
         [Required]
         [DataMember]
         public string MilKodu { get; set; }
-        
+
+
+        //public string TaniticiRenk { get; set; }
+
+        public TaniticiRenk TaniticiRenk { get; set; }
         [Required]
         [DataMember]
-        public string TaniticiRenk { get; set; }
+        public int TaniticiRenkId { get; set; }
 
         [Required]
         [DataMember]

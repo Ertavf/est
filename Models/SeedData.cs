@@ -14,7 +14,7 @@ using System.Xml.Serialization;
 
 namespace MvcApplication2.Models
 {
-    class SeedData : DropCreateDatabaseAlways<MvcApplication2.Models.MvcApplication2Context>
+    class SeedData : DropCreateDatabaseIfModelChanges<MvcApplication2.Models.MvcApplication2Context>
     {
         protected override void Seed(MvcApplication2Context context)
         {
@@ -45,8 +45,10 @@ namespace MvcApplication2.Models
 
             List<Firma> firmas = new List<Firma>();
 
+            List<TaniticiRenk> taniticiRenks = new List<TaniticiRenk>();
+
             XmlVeriler.XmlOkuyucu xmlVeriler = new XmlVeriler.XmlOkuyucu();
-            List<Parti> partis = xmlVeriler.partiler(sanayis, mils,milTipis,estasKoduTipis,firmas);
+            List<Parti> partis = xmlVeriler.partiler(sanayis, mils, milTipis, estasKoduTipis, firmas, taniticiRenks);
             partis.ForEach(p => context.Partis.Add(p));
 
             List<HataSebebi> hataSebepleri = new List<HataSebebi>{
