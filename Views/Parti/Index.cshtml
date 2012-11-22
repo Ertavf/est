@@ -68,8 +68,22 @@
         <th>
             @Html.DisplayFor(modelItem => item.isValid)
         </th>
-        <th>@Html.ActionLink(""+item.Hatas.Count(),"Index","Hata",new { PartiId = item.PartiId},null) </th>
-                    
+        @{
+             int hatalarToplami = 0;
+             item.Hatas.ToList().ForEach(h=> hatalarToplami +=h.HataAdet);
+             }
+
+       @* <th>  
+            @Html.ActionLink(""+item.Hatas.Count(),"Index","Hata",new { PartiId = item.PartiId},null) 
+        </th>   *@
+            <th>@Html.ActionLink("" + hatalarToplami, "Index", "Hata", new  { PartiId= item.PartiId},null)</th>
+
+        @{
+            int tashihlerToplami =0;
+            item.Hatas.ToList().ForEach(h => tashihlerToplami += h.Tashih);
+        }
+
+        <th>@Html.ActionLink("" + tashihlerToplami, "Index", "Hata", new  { PartiId = item.PartiId},null)</th> 
 
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PartiId }) |
