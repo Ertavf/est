@@ -15,11 +15,39 @@ namespace MvcApplication2.Controllers
 
         //
         // GET: /Personel/
-
-        public ActionResult Index()
+        private IQueryable<Personel> Personels
         {
-            var personels = db.Personels.Include(p => p.Bolum);
-            return View(personels.ToList());
+            get
+            {
+                return db.Personels.Include(p => p.Bolum);
+            }
+        }
+
+        public ActionResult Index(int PersonelId = 0, int bas = 0, int getir = 5)
+        {
+            /*var personels = db.Personels.Include(p => p.Bolum);
+            return View(personels.ToList());*/
+            if (bas < 0)
+                bas = 0;
+            @ViewBag.Toplam = Personels.Count();
+
+            var personels = Personels.OrderByDescending(p => p.Adi).Skip(bas).Take(getir);
+            ViewBag.Bas = bas;
+            ViewBag.Getir = getir;
+            if (PersonelId != 0)
+            {
+                personels = personels.Where(p => p.PersonelId == PersonelId);
+            }
+
+
+            List<Personel> personeller = personels.ToList();
+            
+            foreach (Personel prsnllr in personeller)
+            {
+                ModelMetadata modelMetaData = ModelMetadataProviders.Current.GetMetadataForType(() => prsnllr, typeof(Personel));
+                //prti.isValid = ModelValidator.GetModelValidator(modelMetaData, ControllerContext);
+            }
+            return View(personeller);
         }
 
         //

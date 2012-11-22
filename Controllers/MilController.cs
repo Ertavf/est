@@ -24,15 +24,37 @@ namespace MvcApplication2.Controllers
         //
         // GET: /Mil/
 
-        public ActionResult Index(int id = 0)
+        public ActionResult Index(int MilId = 0, int bas = 0, int getir = 5)
         {
-            var mils = Mils;
+            if (bas < 0)
+                bas = 0;
+            @ViewBag.Toplam = Mils.Count();
+
+            var mils = Mils.OrderByDescending(p => p.MilKodu).Skip(bas).Take(getir);
+            ViewBag.Bas = bas;
+            ViewBag.Getir = getir;
+            if (MilId != 0)
+            {
+                mils = mils.Where(p => p.MilId == MilId);
+            }
+
+
+            List<Mil> miller = mils.ToList();
+            //partiler.ForEach(p => p.isValid = TryValidateModel(p));
+
+            foreach (Mil ml in miller)
+            {
+                ModelMetadata modelMetaData = ModelMetadataProviders.Current.GetMetadataForType(() => ml, typeof(Mil));
+                //prti.isValid = ModelValidator.GetModelValidator(modelMetaData, ControllerContext);
+            }
+            return View(miller);
+            /*var mils = Mils;
 
             if (id != 0)
             {
                 mils = mils.Where(m => m.MilId == id);
             }
-            return View(mils.ToList());
+            return View(mils.ToList());  */
         }
 
         //

@@ -17,20 +17,41 @@ namespace MvcApplication2.Controllers
         {
             get
             {
-                return db.Hatas.Include(p => p.HataliBolum).Include(p => p.HataSebebi).Include(p => p.HataAdet).Include(p=>p.HataYakalayanBolum);
+                return db.Hatas.Include(p => p.HataliBolum).Include(p => p.HataSebebi).Include(p=>p.HataYakalayanBolum);
             }
         }
         //
         // GET: /Hata/
 
-        public ActionResult Index(int id = 0)
+        public ActionResult Index(int HataId = 0, int bas = 0, int getir = 5)
         {
-            var hatas = db.Hatas.Include(h => h.Parti).Include(h => h.HataSebebi).Include(h => h.HataliBolum).Include(h => h.HataYakalayanBolum).Include(h => h.Tezgah);
+           /* var hatas = db.Hatas.Include(h => h.Parti).Include(h => h.HataSebebi).Include(h => h.HataliBolum).Include(h => h.HataYakalayanBolum).Include(h => h.Tezgah);
             if (id != 0)
             {
                 hatas = hatas.Where(m => m.HataId == id);
             }
-            return View(hatas.ToList());
+            return View(hatas.ToList());   */
+
+            if (bas < 0)
+                bas = 0;
+            @ViewBag.Toplam = Hatas.Count();
+
+            var hatas = Hatas.OrderByDescending(p => p.Tashih).Skip(bas).Take(getir);
+            ViewBag.Bas = bas;
+            ViewBag.Getir = getir;
+            if (HataId != 0)
+            {
+                hatas = hatas.Where(p => p.HataId == HataId);
+            }
+
+            List<Hata> hatalar = hatas.ToList();
+            
+            foreach (Hata ht in hatalar)
+            {
+                ModelMetadata modelMetaData = ModelMetadataProviders.Current.GetMetadataForType(() => ht, typeof(Hata));
+                //prti.isValid = ModelValidator.GetModelValidator(modelMetaData, ControllerContext);
+            }
+            return View(hatalar);
         }
 
         //
