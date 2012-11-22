@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcApplication2.Models;
+using Rotativa.Options;
+using Rotativa;
 
 namespace MvcApplication2.Controllers
 {
@@ -72,22 +74,49 @@ namespace MvcApplication2.Controllers
         }*/
         public ActionResult Form(int id = 0, int form = 0)
         {
-            Parti parti = Partis.Single(p => p.PartiId == id);
-            switch(form){
+
+            switch (form)
+            {
                 case 1:
                     ViewBag.FormCss = Url.Content("~/Content/Formlar/kaliteKontrolForm.css");
                     break;
                 default:
                     ViewBag.FormCss = Url.Content("~/Content/Formlar/imalatIsEmriForm.css");
                     break;
-        }
-            if (parti == null)
-            {
-                return HttpNotFound();
             }
-            return View(parti);
+            if (id == 0)
+            {
+                //ViewBag.FormCss = Url.Content("~/Content/Formlar/formKoseleri.css");
+                return View();
+            }
+            else
+            {
+                Parti parti = Partis.Single(p => p.PartiId == id);
+                if (parti == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(parti);
+            }
         }
-        
+
+        public ActionResult FormPdf(int id = 0, int form = 0)
+        {
+            var urlHelper = new UrlHelper(Request.RequestContext);
+            string url = urlHelper.Action("Form", new { @id = id,form = form });
+
+            return new UrlAsPdf(url)
+            {
+                IsBackgroundDisabled = false,
+                PageOrientation = Rotativa.Options.Orientation.Portrait,
+                PageWidth = 200,
+                PageHeight = 200,
+                PageMargins = new Margins(0, 0, 0, 0),
+                PageSize = Rotativa.Options.Size.A4,
+            };
+        }
+
         [ChildActionOnly]
         public string SiradakiPartiSirasi(){
             try
